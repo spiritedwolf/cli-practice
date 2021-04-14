@@ -17,8 +17,8 @@
 // console.log(process.argv);
 
 const amount = process.argv[2];
-const firstCurrency = process.argv[3].toUpperCase();
-const secondCurrency = process.argv[4].toUpperCase();
+const firstCurrency = process.argv[3];
+const secondCurrency = process.argv[4];
 
 // console.log(firstCurrency, secondCurrency);
 
@@ -32,6 +32,21 @@ const secondCurrency = process.argv[4].toUpperCase();
 // If any of the required information is missing, display a meaningful message
 // and exit the program.
 
+if (amount === undefined) {
+    console.log("Missing argument: amount ");
+    console.log("Usage: node currency-converter.js <amount> <convert currency from> <convert currency to>");
+    console.log("Example: node currency-converter.js 10 USD CAD");
+}
+if (firstCurrency === undefined) {
+    console.log("Missing argument: initial currency ");
+    console.log("Usage: node currency-converter.js <amount> <convert currency from> <convert currency to>");
+    console.log("Example: node currency-converter.js 10 USD CAD");
+}
+if (secondCurrency === undefined) {
+    console.log("Missing argument: target currency ");
+    console.log("Usage: node currency-converter.js <amount> <convert currency from> <convert currency to>");
+    console.log("Example: node currency-converter.js 10 USD CAD");  
+}
 
 
 // --------------------------------------------------
