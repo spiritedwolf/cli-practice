@@ -119,8 +119,7 @@ axios
 // This message should also include the original amount and currency information
 // supplied by the user.
 
-    
-    
+    console.log(`Amount: ${amount}\nFrom: ${firstCurrency}\nTo: ${secondCurrency}\nResult: ${convertRate.toFixed(2)}`);
   })
   .catch((err) => {
     console.log("Error: ", err.message);
