@@ -1,5 +1,11 @@
 # CLI Practice
 
+## Dependencies
+Please install the below dependencies first before running the 'currency-converter.js' file.
+
+axios
+`npm install axios`
+
 ## Introduction
 This repository contains the starter files for the 'CLI Practice' exercise.
 
