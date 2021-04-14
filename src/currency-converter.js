@@ -7,6 +7,8 @@
 // in a functional, testable program. However, please free to approach the problem
 // differently. There are many paths and approaches that result in a perfectly
 // valid finished product.
+const axios = require("axios");
+
 
 // --------------------------------------------------
 // Step 1: Capture user input
@@ -63,6 +65,7 @@ if (secondCurrency === undefined) {
 
 
 
+
 // --------------------------------------------------
 // Step 4: Ensure that a conversion rate exists
 // --------------------------------------------------
@@ -71,6 +74,25 @@ if (secondCurrency === undefined) {
 
 // If the user supplies an invalid initial or target currency, display a meaningful
 // warning message and exit the program.
+
+const URL = `https://api.ratesapi.io/api/latest?base=${firstCurrency}`;
+axios
+  .get(URL)
+  .then((res) => {
+    let currencies = Object.keys(res['data']['rates']);
+    let first = currencies.includes(firstCurrency);
+    let second = currencies.includes(secondCurrency);
+    // First check if the currency is valid
+    if (first != true) {
+        console.log(`Sorry, but the currency "${firstCurrency}" doesn't exist. Please try using a valid currency.`)
+    }
+    if (second != true) {
+    console.log(`Sorry, but the currency "${secondCurrency}" doesn't exist. Please try using a valid currency.`)
+    }
+  })
+  .catch((err) => {
+    console.log("Error: ", err.message);
+  });
 
 
 
