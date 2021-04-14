@@ -104,7 +104,12 @@ axios
 
 // Now we will compute the rate, apply it to the amount, and capture the result.
 
-
+axios
+  .get(URL)
+  .then((res) => {
+    let rates = res['data']['rates'];
+    let targetValue = rates[secondCurrency];
+    let convertRate = amount * targetValue;
 
 // --------------------------------------------------
 // Step 6: Display results
@@ -113,3 +118,11 @@ axios
 
 // This message should also include the original amount and currency information
 // supplied by the user.
+
+    
+    
+  })
+  .catch((err) => {
+    console.log("Error: ", err.message);
+  });
+
